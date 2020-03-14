@@ -1,7 +1,7 @@
 #
 # Builds a custom docker image for ShinobiCCTV Pro
 #
-FROM node:8-alpine 
+FROM node:12-alpine
 
 LABEL Author="MiGoller, mrproper, pschmitt & moeiscool"
 
