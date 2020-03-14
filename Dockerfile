@@ -3,7 +3,7 @@
 #
 FROM node:12-alpine
 
-LABEL Author="MiGoller, mrproper, pschmitt & moeiscool"
+LABEL Author="MiGoller, mrproper, pschmitt & moeiscool, Alex Wigen"
 
 # Set environment variables to default values
 # ADMIN_USER : the super user login name
@@ -36,6 +36,7 @@ RUN mkdir -p \
 # Install package dependencies
 RUN apk update && \
     apk add --no-cache \ 
+        dumb-init \
         freetype-dev \ 
         gnutls-dev \ 
         lame-dev \ 
@@ -108,6 +109,6 @@ VOLUME ["/var/lib/mysql"]
 
 EXPOSE 8080
 
-ENTRYPOINT ["/opt/shinobi/docker-entrypoint.sh"]
+ENTRYPOINT ["dumb-init"]
 
-CMD ["pm2-docker", "pm2Shinobi.yml"]
+CMD ["/opt/shinobi/docker-entrypoint.sh", "pm2-docker", "pm2Shinobi.yml"]
