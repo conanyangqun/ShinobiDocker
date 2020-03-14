@@ -1,9 +1,9 @@
 #
 # Builds a custom docker image for ShinobiCCTV Pro
 #
-FROM node:8-alpine 
+FROM node:12-alpine
 
-LABEL Author="MiGoller, mrproper, pschmitt & moeiscool"
+LABEL Author="MiGoller, mrproper, pschmitt & moeiscool, Alex Wigen"
 
 # Set environment variables to default values
 # ADMIN_USER : the super user login name
@@ -36,6 +36,7 @@ RUN mkdir -p \
 # Install package dependencies
 RUN apk update && \
     apk add --no-cache \ 
+        dumb-init \
         freetype-dev \ 
         gnutls-dev \ 
         lame-dev \ 
@@ -76,8 +77,6 @@ RUN apk update && \
         tar \
         xz
 
-RUN sed -ie "s/^bind-address\s*=\s*127\.0\.0\.1$/#bind-address = 0.0.0.0/" /etc/mysql/my.cnf
-
 # Install ffmpeg static build version from cdn.shinobi.video
 RUN wget https://cdn.shinobi.video/installers/ffmpeg-release-64bit-static.tar.xz && \
     tar xpvf ./ffmpeg-release-64bit-static.tar.xz -C ./ && \
@@ -108,6 +107,6 @@ VOLUME ["/var/lib/mysql"]
 
 EXPOSE 8080
 
-ENTRYPOINT ["/opt/shinobi/docker-entrypoint.sh"]
+ENTRYPOINT ["dumb-init"]
 
-CMD ["pm2-docker", "pm2Shinobi.yml"]
+CMD ["/opt/shinobi/docker-entrypoint.sh", "pm2-docker", "pm2Shinobi.yml"]
