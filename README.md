@@ -11,12 +11,12 @@ Find MiGoller's original image here : https://hub.docker.com/r/migoller/shinobi/
 >  `docker-compose` should already be installed.
 
 1. Clone the Repo and enter the `docker-shinobi` directory.
-    ```
+    ```bash
     git clone https://gitlab.com/Shinobi-Systems/ShinobiDocker.git ShinobiDocker && cd ShinobiDocker
     ```
 
 2. Spark one up.
-    ```
+    ```bash
     sh start-image.sh
     ```
     
@@ -27,8 +27,9 @@ Find MiGoller's original image here : https://hub.docker.com/r/migoller/shinobi/
     Password : admin
     ```
 
-3. After account creation head on over to the main `Web Address` and start using Shinobi!
+4. After account creation head on over to the main `Web Address` and start using Shinobi!
     ```
-    http://xxx.xxx.xxx.xxx:8080/
-    ```    
-4. Enjoy!
+    http://xxx.xxx.xxx.xxx:8080
+    ``` 
+
+5. Enjoy!
