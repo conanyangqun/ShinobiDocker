@@ -34,8 +34,13 @@ EOF
 )
 echo "Setting Database"
 echo $DB_CONFIG
-git reset --hard
-git pull
+
+if [ "$SHINOBI_UPDATE" = "true" ]; then
+    echo "Updating Shinobi..."
+    git reset --hard
+    git pull --rebase
+fi
+
 node tools/modifyConfiguration.js addToConfig="{\"db\": $DB_CONFIG}"
 
 pm2 flush

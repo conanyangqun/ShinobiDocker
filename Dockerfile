@@ -12,7 +12,7 @@ RUN apt-get update && apt-get install -y \
     default-mysql-client \
     && rm -rf /var/lib/apt/lists/*  # Clean up to reduce image size
 
-RUN git clone --single-branch --branch $SHINOBI_BRANCH https://gitlab.com/Shinobi-Systems/Shinobi.git /opt/shinobi
+RUN git clone --branch $SHINOBI_BRANCH https://gitlab.com/Shinobi-Systems/Shinobi.git /opt/shinobi
 
 WORKDIR /opt/shinobi
 RUN npm install && npm install pm2 -g
