@@ -17,8 +17,6 @@ services:
       context: .
       args:
         SHINOBI_BRANCH: dev
-    depends_on:
-      - shinobi-sql
     volumes:
       - /dev/shm/ShinobiRAM:/dev/shm/streams
       - $HOME/Shinobi:/home/Shinobi
