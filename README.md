@@ -23,9 +23,9 @@ bash <(curl -s https://gitlab.com/Shinobi-Systems/Shinobi-Installer/raw/master/s
 
 You will be asked if you want to use the included database, default is Yes. Once complete open port 8080 of your Docker host in a web browser.
 
-> The following tables offer a breakdown of the configurations that control how the `shinobi` and `shinobi-sql` services are set up and interact within your Docker environment. Adjustments can be made to these values directly in the `docker-compose.yml` file to modify the behavior of the deployment as needed.
+> The following tables offer a breakdown of the configurations that control how the `shinobi` and `shinobi-sql` services are set up and interact within your Docker environment. Adjustments can be made to these values directly in the associated `docker-compose` files to modify the behavior of the deployment as needed.
 
-### `docker-compose.yml` : `shinobi-sql` Service Environment Variables
+### `docker-compose-sql.yml` : `shinobi-sql` Service Environment Variables
 
 | Variable             | Description                                          | Default Value    |
 |----------------------|------------------------------------------------------|------------------|
@@ -34,7 +34,7 @@ You will be asked if you want to use the included database, default is Yes. Once
 | MYSQL_USER           | The username for the database.                       | `majesticflame`  |
 | MYSQL_PASSWORD       | The password for the database user.                  | `1234`           |
 
-### `docker-compose.yml` : `shinobi` Service Build Arguments and Environment Variables
+### `docker-compose-main.yml` : `shinobi` Service Build Arguments and Environment Variables
 
 #### Build Arguments
 
