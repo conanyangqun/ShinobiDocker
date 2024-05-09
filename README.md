@@ -1,5 +1,7 @@
 # Install Shinobi with Docker
 #### 2024-05-07
+https://shinobi.video
+https://docs.shinobi.video/installation/docker
 
 # Quick Install
 
