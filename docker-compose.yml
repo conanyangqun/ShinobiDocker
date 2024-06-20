@@ -15,6 +15,9 @@ services:
       - db_password
 
   shinobi:
+# Once the registry image is updated with the changes to entrypoint.sh,
+# remove the build entry and use image instead.
+#    image: registry.gitlab.com/shinobi-systems/shinobi:dev
     build:
       context: .
       args:
