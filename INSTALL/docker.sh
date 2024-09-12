@@ -26,6 +26,14 @@ if command -v nvidia-smi &> /dev/null; then
     sed -i -e '/experimental/ s/^#//g' /etc/apt/sources.list.d/nvidia-container-toolkit.list
     sudo apt-get update
     sudo apt-get install -y nvidia-container-toolkit
+
+    distribution=$(. /etc/os-release;echo $ID$VERSION_ID)
+    curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | sudo apt-key add -
+    curl -s -L https://nvidia.github.io/nvidia-docker/$distribution/nvidia-docker.list | sudo tee /etc/apt/sources.list.d/nvidia-docker.list
+
+
+    sudo apt-get update
+    sudo apt-get install -y nvidia-docker2
 else
     echo "nvidia-smi not found, skipping Nvidia container toolkit setup."
 fi
