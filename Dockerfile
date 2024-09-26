@@ -10,6 +10,7 @@ RUN apt-get update && apt-get install -y \
     git \
     ffmpeg \
     default-mysql-client \
+    procps \
     && rm -rf /var/lib/apt/lists/*  # Clean up to reduce image size
 
 RUN git clone --branch $SHINOBI_BRANCH https://gitlab.com/Shinobi-Systems/Shinobi.git /opt/shinobi
